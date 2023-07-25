@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculadora</title>
+        <style>
+            h1 {
+                text-align: center;
+                color: orange;
+            }
+             h2 {
+                text-align: center;
+                color: orange;
+            }
+            body {
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            padding-bottom: 50px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+            margin: 20px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input, select, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            /* Remover o efeito padrão do botão */
+            border: none;
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            }
+
+        </style>
+
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <p>Calculadora simples utilizando HTML, CSS e, Python para realizar operações de soma, subtração, multiplicação e divisão</p>
+    <form action="/calcular" method="post">
+        <input type="number" name="num1" placeholder="Digite o primeiro número" required value="{{ num1 }}">
+        <input type="number" name="num2" placeholder="Digite o segundo número" required value="{{ num2 }}">
+        <select name="operacao" required>
+            <option value="soma" {% if operacao=='soma' %}selected{% endif %}>Soma</option>
+            <option value="subtracao" {% if operacao=='subtracao' %}selected{% endif %}>Subtração</option>
+            <option value="multiplicacao" {% if operacao=='multiplicacao' %}selected{% endif %}>Multiplicação</option>
+            <option value="divisao" {% if operacao=='divisao' %}selected{% endif %}>Divisão</option>
+        </select>
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if resultado is not none %}
+    <h2>Resultado: {{ resultado }}</h2>
+    {% endif %}
+
+
+    <footer>
+        <p>Está Calculadora foi desenvolvida por: Bruno Bertin Marquez</p>
+        <p>email:<a href="mailto:exemplo@calculadora.com">bertinmarquez84@gmail.com</a></p>
+        <p>GitHub:<a href="https://github.com/Marquezbertin">Bruno Bertin</a></p>
+        <p>Linkedin:<a href="https://www.linkedin.com/in/bruno-bertin/">Bruno Bertin</p>
+        <p>Whatsapp:<a href="https://api.whatsapp.com/send?phone=5519993157272">(19) 99315-7272</a></p>
+    </footer>
+</body>
+
+</html>
