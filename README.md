@@ -45,3 +45,7 @@ Sinta-se à vontade para fazer modificações no código para personalizar a cal
 
 # Conclusão
 Parabéns! Agora você tem uma calculadora simples web utilizando HTML, CSS e Python. Divirta-se calculando e experimentando com o código para aprimorar suas habilidades em desenvolvimento web. Se tiver alguma dúvida ou problema, sinta-se à vontade para criar uma issue neste repositório.
+
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](https://github.com/Marquezbertin/Calculadora/blob/main/LICENSE.txt) para mais detalhes.
