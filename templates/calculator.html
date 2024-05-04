@@ -3,20 +3,71 @@
 
 <head>
     <title>Calculadora</title>
-        <style>
-            h1 {
-                text-align: center;
-                color: orange;
-            }
-             h2 {
-                text-align: center;
-                color: orange;
-            }
-            body {
-            position: relative;
-            min-height: 100vh;
+    <!-- Importando a fonte 'Roboto' do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Definindo a fonte padrão */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
-            padding-bottom: 50px;
+            padding: 0;
+            min-height: 100vh;
+            padding-bottom: 60px;
+            /* Espaço para o rodapé */
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            margin-top: 20px;
+            /* Espaçamento acima do título */
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        select,
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
 
         footer {
@@ -24,72 +75,38 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 10px;
             text-align: center;
+            border-top: 1px solid #ddd;
         }
 
         footer a {
-            color: #fff;
+            color: #007BFF;
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
         }
-        
-        p {
-            font-size: 18px;
-            color: #555;
-            text-align: center;
-            margin: 20px 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
 
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        input, select, button {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            cursor: pointer;
-            /* Remover o efeito padrão do botão */
-            border: none;
-            outline: none;
-        }
-
-        button:hover {
-            background-color: #0056b3;
+        /* Responsividade */
+        @media (max-width: 600px) {
+            form {
+                padding: 10px;
             }
-
-        </style>
-
+        }
+    </style>
 </head>
 
 <body>
     <h1>Calculadora</h1>
-    <p>Calculadora simples utilizando HTML, CSS e, Python para realizar operações de soma, subtração, multiplicação e divisão</p>
+    <p>Calculadora simples utilizando HTML, CSS e Python para realizar operações de soma, subtração, multiplicação e
+        divisão.</p>
     <form action="/calcular" method="post">
-        <input type="number" name="num1" placeholder="Digite o primeiro número" required value="{{ num1 }}">
-        <input type="number" name="num2" placeholder="Digite o segundo número" required value="{{ num2 }}">
+        <input type="text" name="num1" placeholder="Digite o primeiro número" required value="{{ num1 }}">
+        <input type="text" name="num2" placeholder="Digite o segundo número" required value="{{ num2 }}">
         <select name="operacao" required>
             <option value="soma" {% if operacao=='soma' %}selected{% endif %}>Soma</option>
             <option value="subtracao" {% if operacao=='subtracao' %}selected{% endif %}>Subtração</option>
@@ -98,18 +115,17 @@
         </select>
         <button type="submit">Calcular</button>
     </form>
-
+    
     {% if resultado is not none %}
     <h2>Resultado: {{ resultado }}</h2>
     {% endif %}
 
-
     <footer>
-        <p>Está Calculadora foi desenvolvida por: Bruno Bertin Marquez</p>
-        <p>email:<a href="mailto:exemplo@calculadora.com">bertinmarquez84@gmail.com</a></p>
-        <p>GitHub:<a href="https://github.com/Marquezbertin">Bruno Bertin</a></p>
-        <p>Linkedin:<a href="https://www.linkedin.com/in/bruno-bertin/">Bruno Bertin</p>
-        <p>Whatsapp:<a href="https://api.whatsapp.com/send?phone=5519993157272">(19) 99315-7272</a></p>
+        <p>Esta calculadora foi desenvolvida por: Bruno Bertin Marquez</p>
+        <p>Email: <a href="mailto:bertinmarquez84@gmail.com">bertinmarquez84@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/Marquezbertin" target="_blank">Bruno Bertin</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/bruno-bertin/" target="_blank">Bruno Bertin</a></p>
+        <p>WhatsApp: <a href="https://api.whatsapp.com/send?phone=5519993157272" target="_blank">(19) 99315-7272</a></p>
     </footer>
 </body>
 
